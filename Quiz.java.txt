@@ -1,0 +1,28 @@
+public class Quiz {
+	public static void main(String[] args) {
+		Question question = new TrueFalseQuestion("Lightning can strike in the same place twice","y");
+		question.check();
+		question = new TrueFalseQuestion("Universe is not expanding","n");
+		question.check();
+		question = new TrueFalseQuestion("You cannot smell when you are sleeping","t");
+		question.check();
+		question = new TrueFalseQuestion("Adults can breath and swallow at the same time.","f");
+		question.check();
+		question = new TrueFalseQuestion("An acute angle is less than 90 degree?","True");
+		question.check();
+		question = new TrueFalseQuestion("Ozygen makes up two-thirds of Earth and also two-thirds of the human body","False");
+		question.check();
+	    question = new MultipleChoiceQuestion("String in Java is a?","class","object","variable","array","method","a");
+		question.check();
+		question = new MultipleChoiceQuestion("What occurs when sensory receptors detect sensory stimuli?", "perception","sensation","transduction","sensory adaption","sensory disorder","b");
+		question.check();
+		question = new MultipleChoiceQuestion("Which of these keywords is used to make a class?", "struct", "int", "class", "obj", "void", "c");
+		question.check();
+		question = new MultipleChoiceQuestion("What is the return type of a method that does not return any value?","int","float","double","void","string","d");
+		question.check();
+		question = new MultipleChoiceQuestion("Which of the following is a method having same name as of its class?", "finalize", "delete", "double", "void", "constructor", "d");
+		question.check();
+		MultipleChoiceQuestion.showResults();
+	}
+	
+}

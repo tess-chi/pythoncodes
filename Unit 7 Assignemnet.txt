@@ -1,0 +1,69 @@
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+test_dups = ["zzz","dog","bookkeeper","subdermatoglyphic",
+"subdermatoglyphics"]
+test_miss = ["zzz","subdermatoglyphic",
+"the quick brown fox jumps over the lazy dog"]
+
+
+def histogram(s):	#copy formula given in problem and text 11.2
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+            return d
+
+# Part 1
+
+def has_duplicates(s):	#creating function to print duplicates 
+    h = histogram(s)
+    for k,v in h.items():
+        if v > 1:
+            return True
+        return False
+    for s in test_dups:		# indicating for the given list if it has duplicates 
+        if has_duplicates(s):
+            print(s,"has duplicates")
+        else:
+            print(s,"has no duplicates") # the other conditinal of not having duplicates 
+ 
+# Part 2
+
+def missing_letters(s):
+    h = histogram(s)	#recalling the functions from above 
+    m = []
+    for c in alphabet:
+        if c not in h:
+            m.append(c) #considering both list to print together 
+            return ''.join(m)
+        for s in test_miss:
+            m = missing_letters(s) # considering the ellemnts of missing letters 
+            if len(m):	#stating the conditionals of print all letters or not 
+                print(s,"is missing letters",m)
+            else:
+                print(s,"uses all the letters")
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+test_dups = ["zzz","dog","bookkeeper","subdermatoglyphic",
+"subdermatoglyphics"]
+test_miss = ["zzz","subdermatoglyphic",
+"the quick brown fox jumps over the lazy dog"]
+
+
+	# 'zzz' 
+zzz has duplicates
+	#'dog'
+dog has no duplicates
+	#'bookkeeper'
+bookkeeper has duplicates
+	#'subdermatoglyphic'
+subdermatoglyphic has no duplicates
+	#'subdermatoglyphics'
+subdermatoglyphics has duplicates 
+
+zzz is missing letters abcdefghijklmnopqrstuvwxy
+
+subdermatoglyphic is missing letters fjknqvwxz
+
+the quick brown fox jumps over the lazy dog uses all the letters
